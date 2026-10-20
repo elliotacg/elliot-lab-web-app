@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sharetea - Lab Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f7f7f7;
+    }
+    h1 {
+      color: #500000;
+    }
+    .db-badge {
+      display: inline-block;
+      background: #e0e0e0;
+      padding: 6px 12px;
+      border-radius: 4px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 800px;
+      background: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background-color: #500000;
+      color: white;
+      font-weight: 600;
+    }
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sharetea POS - Live Database Connection</h1>
+  <div class="db-badge">
+    Connected to Database: <strong><%= database %></strong> on <strong><%= host %></strong>
+  </div>
+
+  <h2>Menu Items from PostgreSQL:</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Item Name</th>
+        <th>Category</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (let i = 0; i < items.length; i++) { %>
+        <tr>
+          <td><%= items[i].menu_item_id %></td>
+          <td><%= items[i].name %></td>
+          <td><%= items[i].category %></td>
+          <td>$<%= Number(items[i].price).toFixed(2) %></td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</body>
+</html>
