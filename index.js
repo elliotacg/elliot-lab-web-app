@@ -16,7 +16,7 @@ const pool = new Pool({
   ssl: { rejectUnauthorized: false }
 });
 
-// Process hook to shutdown pool gracefully on Ctrl+C (Slide 31)
+// Process hook to shutdown pool 
 process.on('SIGINT', function() {
   pool.end();
   console.log('Application successfully shutdown');
